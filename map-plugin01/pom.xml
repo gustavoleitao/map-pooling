@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>map-pooling</artifactId>
+        <groupId>br.com.logique</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>map-plugin01</artifactId>
+
+    <properties>
+        <plugin.id>map-pooling-plugin1</plugin.id>
+        <plugin.class>br.com.logique.map.plugin01.Plugin1</plugin.class>
+        <plugin.version>0.0.1</plugin.version>
+        <plugin.provider>Logique Sistemas</plugin.provider>
+        <plugin.description>Exemplo de um plugin simples</plugin.description>
+        <plugin.dependencies />
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>br.com.logique</groupId>
+            <artifactId>map-plugin-api</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>org.pf4j</groupId>
+            <artifactId>pf4j</artifactId>
+            <version>3.2.0</version>
+        </dependency>
+    </dependencies>
+
+   <build>
+       <plugins>
+           <plugin>
+               <groupId>org.apache.maven.plugins</groupId>
+               <artifactId>maven-jar-plugin</artifactId>
+               <configuration>
+                   <archive>
+                       <manifest>
+                           <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                           <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+                       </manifest>
+                       <manifestEntries>
+                           <Plugin-Class>${plugin.class}</Plugin-Class>
+                           <Plugin-Id>${plugin.id}</Plugin-Id>
+                           <Plugin-Version>${plugin.version}</Plugin-Version>
+                           <Plugin-Requires>1.0.0</Plugin-Requires>
+                           <Plugin-Dependencies></Plugin-Dependencies>
+                           <Plugin-Description>${plugin.description}</Plugin-Description>
+                           <Plugin-Provider>${plugin.provider}</Plugin-Provider>
+                           <Plugin-License>Apache License 2.0</Plugin-License>
+                       </manifestEntries>
+                   </archive>
+               </configuration>
+           </plugin>
+       </plugins>
+   </build>
+
+</project>
